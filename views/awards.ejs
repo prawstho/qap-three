@@ -1,0 +1,26 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="awards content">
+            <form action="/awards" method="POST">
+                <b>Awards: </b></br> 
+            <% if (theAwards.length > 0) { %>
+                <% theAwards.forEach(award => { %>
+                    <b><%= award.name %></b>
+                    <a href="/awards/<%=award.award_id%>/edit?name=<%=award.name%>">edit</a>
+                    <a href="/awards/<%=award.award_id%>/edit?name=<%=award.name%>">delete</a>
+                    <a href="/awards/<%=award.award_id%>/edit?name=<%=award.name%>">replace</a></br> 
+                    <% }) %>
+            <% } %>
+            </br><label>Add Award:</label></br>
+            <label>Name:
+                <input type="text" id="name" name="name" value="<%= locals.name %>" required>
+            </label>
+            </br>
+            <button>POST</button>
+        </form>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>
