@@ -3,7 +3,7 @@ const methodOverride = require('method-override');
 const app = express();
 const PORT = 3000;
 
-global.DEBUG = false;
+global.DEBUG = true;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true, })); // This is important!
 app.use(methodOverride('_method')); // So is this!
@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
     res.render('index.ejs', { name: 'Keyin College'});
 });
 
-// const awardsRouter = require('./routes/awards')
-// app.use('/awards', awardsRouter);
+const awardsRouter = require('./routes/awards')
+app.use('/awards', awardsRouter);
 
 // // anything beginning with "/api" will go into this
 // const apiRouter = require('./routes/api')
