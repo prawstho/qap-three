@@ -16,8 +16,8 @@ const awardsRouter = require('./routes/awards')
 app.use('/awards', awardsRouter);
 
 // // anything beginning with "/api" will go into this
-// const apiRouter = require('./routes/api')
-// app.use('/api', apiRouter);
+const apiRouter = require('./routes/api')
+app.use('/api', apiRouter);
 
 app.use((req, res) => {
     res.status(404).render('404');
